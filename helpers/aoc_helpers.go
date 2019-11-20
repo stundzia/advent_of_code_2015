@@ -58,3 +58,29 @@ func SliceStrToInt(slice []string) []int {
 	}
 	return res
 }
+
+func StringContainsSubstringCount(str string, substring string) []int {
+	substringStarts := []int{}
+	MainLoop:
+	for i, _ := range str {
+		if str[i] == substring[0] {
+			for t:=1;t < len(substring); t++ {
+				if len(str) < i + t +1 || str[i+t] != substring[t] {
+					continue MainLoop
+				}
+			}
+			substringStarts = append(substringStarts, i)
+		}
+	}
+	return substringStarts
+}
+
+func StringContainsCharCount(str string, letter rune) int {
+	count := 0
+	for _, char := range str {
+		if letter == char {
+			count++
+		}
+	}
+	return count
+}
