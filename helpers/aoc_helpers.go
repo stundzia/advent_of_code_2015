@@ -7,7 +7,16 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+	"time"
 )
+
+type solutionGetter func()
+
+func EvaluateRuntime(function solutionGetter) {
+	start := time.Now()
+	function()
+	fmt.Println("Solution evaluation took: ", time.Now().Sub(start))
+}
 
 func FailOnError(err error, msg string) {
 	if err != nil {
