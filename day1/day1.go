@@ -16,7 +16,7 @@ func DoSilver()  {
 	for _, r := range actions {
 		floor += actionMap[r]
 	}
-	fmt.Println(floor)
+	fmt.Println("Solution:", floor)
 }
 
 func DoGold()  {
@@ -27,13 +27,11 @@ func DoGold()  {
 	}
 	txt := helpers.LoadInputTxtFromFile(1)
 	actions := []rune(txt)
-	fmt.Println("Number of actions: ", len(actions))
 	for action_num, r := range actions {
 		floor += actionMap[r]
 		if floor == -1 {
-			fmt.Println(action_num + 1)
+			fmt.Println("Solution: ", action_num + 1)
 			break
 		}
 	}
-	fmt.Println(floor)
 }
