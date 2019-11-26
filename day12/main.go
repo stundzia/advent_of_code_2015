@@ -24,15 +24,9 @@ func cheatSilver(txt string) {
 
 func CountKV(k string, v interface{}) (sum int, redInside bool) {
 	sum = 0
-	//if strings.Contains(k, "red") {
-	//	return sum, true
-	//}
 	if ww, ok := v.([]interface{});ok {
 		for _, n := range ww {
 			add, _ := CountKV("", n)
-			//if red {
-			//	return 0, true
-			//}
 			sum += add
 		}
 	}
