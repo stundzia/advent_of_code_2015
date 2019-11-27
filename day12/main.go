@@ -23,6 +23,7 @@ func cheatSilver(txt string) {
 }
 
 func CountKV(k string, v interface{}) (sum int, redInside bool) {
+	fmt.Println(k)
 	sum = 0
 	if ww, ok := v.([]interface{});ok {
 		for _, n := range ww {
@@ -34,7 +35,7 @@ func CountKV(k string, v interface{}) (sum int, redInside bool) {
 		for kk, vv := range ww {
 			add, red := CountKV(kk, vv)
 			if red {
-				return 0, true
+				return 0, false
 			}
 			sum += add
 		}
